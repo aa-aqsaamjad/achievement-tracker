@@ -1,0 +1,23 @@
+# Environment variables
+.env
+
+# Dependencies
+/vendor/
+
+# Uploads
+/public/uploads/*
+!.gitkeep
+
+# Logs
+*.log
+/tmp
+/cache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
