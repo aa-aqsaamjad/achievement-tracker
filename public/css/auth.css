@@ -1,0 +1,7 @@
+.container {
+    display: none;
+}
+
+.container.active {
+    display: block;
+}
