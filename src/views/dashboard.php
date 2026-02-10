@@ -7,4 +7,6 @@
 </head>
 <body>
    bleh
+
+   <a href="/achievement-tracker/public/auth.php">Logout</a>
 </html>
