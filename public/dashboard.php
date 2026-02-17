@@ -7,4 +7,4 @@ if (!isset($_SESSION['student_id'])) {
     exit;
 }
 
-require __DIR__ . '/../src/views/dashboard.php';
+require __DIR__ . '/../views/dashboard.php';

@@ -3,8 +3,8 @@ const signInButton = document.getElementById('signInButton');
 const signUpForm = document.getElementById('signup');
 const signInForm = document.getElementById('signin');
 
-signup.classList.add('active');
-signin.classList.remove('active');
+signUpForm.classList.add('active');
+signInForm.classList.remove('active');
 
 signInButton.addEventListener('click', (e) => {
     e.preventDefault();

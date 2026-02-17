@@ -93,4 +93,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signIn'])) {
 /* =====================
    LOAD VIEW
 ===================== */
-require __DIR__ . '/../src/views/auth.php';
+require __DIR__ . '/../views/auth.php';
