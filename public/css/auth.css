@@ -1,7 +1,104 @@
 .container {
     display: none;
+    background-color: white;
+    padding: 32px 28px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 320px;
+    max-width: 90vw;
+    margin-top: 10px;
+
+    border: 1px solid var(--soft-accent);
+
+    animation: fadeIn 0.25s ease;
 }
 
 .container.active {
     display: block;
+}
+
+.form-title {
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+    border: 1px solid var(--line-color);
+    border-radius: 10px;    
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    transition: 0.2s ease;
+}
+
+.input-group:focus-within {
+    border-color: var(--accent-color);
+    background-color: white;
+}
+
+.input-group i {
+    color: var(--accent-color);
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text-color);
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+button#signInButton,
+button#signUpButton {
+    margin-top: 6px;
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+button#signInButton:hover,
+button#signUpButton:hover {
+    text-decoration: underline;
+}
+
+p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-top: 12px;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
 }

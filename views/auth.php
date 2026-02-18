@@ -16,27 +16,27 @@
 
 <body>
 
-    <h1> Achievement Tracker</h1>
+    <h1> Digital Achievement Tracker</h1>
 
     <div class="container" id="signup">
         <h2 class="form-title">Register</h2>
         <form method="POST" action="/achievement-tracker/public/auth.php"> 
             <div class="input-group">
                 <i class="fa-regular fa-user"></i>  
-                <input type="text" id="first_name" name="first_name" required><br><br>
+                <input type="text" id="first_name" name="first_name" placeholder="First Name" required><br><br>
             </div>
             <div class="input-group">
                 <i class="fa-regular fa-user"></i>
-                <input type="text" id="last_name" name="last_name" required><br><br>
+                <input type="text" id="last_name" name="last_name" placeholder="Last Name" required><br><br>
             </div>
             <div class="input-group">
 
                 <i class="fa-regular fa-envelope"></i>
-                <input type="email" id="email" name="email" required><br><br>
+                <input type="email" id="email" name="email" placeholder="Email" required><br><br>
             </div>
             <div class="input-group">
                 <i class="fa-solid fa-lock"></i>
-                <input type="password" id="password" name="password" required><br><br>
+                <input type="password" id="password" name="password" placeholder="Password" required><br><br>
             </div>
             <button type="submit" class="btn" value="Sign Up" name="signUp">Sign Up</button>
         </form>
@@ -45,15 +45,15 @@
     </div>
 
     <div class="container" id="signin">
-        <h1 class="form-title">Sign In</h1>
+        <h2 class="form-title">Sign In</h2>
         <form method="POST" action="/achievement-tracker/public/auth.php"> 
             <div class="input-group">
                 <i class="fa-regular fa-envelope"></i>
-                <input type="email" id="email" name="email" required><br><br>
+                <input type="email" id="email" name="email" placeholder="Email" required><br><br>
             </div>
             <div class="input-group">
                 <i class="fa-solid fa-lock"></i>
-                <input type="password" id="password" name="password" required><br><br>
+                <input type="password" id="password" name="password" placeholder="Password" required><br><br>
             </div>
             <button type="submit" class="btn" value="signIn" name="signIn">Sign In</button>
         </form>
