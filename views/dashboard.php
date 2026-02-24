@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+
+    <link rel="stylesheet" href="/achievement-tracker/public/css/main.css">
+    <link rel="stylesheet" href="/achievement-tracker/public/css/dashboard.css">
+    
 </head>
 <body>
 
-    <h1>
-        Welcome, <?php echo htmlspecialchars($first_name); ?>
-    </h1>
-
-    <a href="/achievement-tracker/public/logout.php">Logout</a>
+    <div class="header">
+        <h1 class="welcome-message">
+            Welcome, <?php echo htmlspecialchars($first_name); ?>
+        </h1>
+        <a class="logout-link" href="/achievement-tracker/public/logout.php">Logout</a>
+    </div>
 
     <div class="container"> 
         <h2>Your Achievements</h2>
-        <a href="/achievement-tracker/public/add_achievement.php">Add New Achievement</a>
+        <a class="btn add" href="/achievement-tracker/public/add_achievement.php">+ New Achievement</a>
 
-        <table>
+        <table class="achievement-table">
             <tr>
                 <th>Achievement Type</th>
                 <th>Achievement Name</th>

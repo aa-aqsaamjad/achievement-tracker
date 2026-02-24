@@ -1,0 +1,96 @@
+/* ===== HEADER (top welcome + logout) ===== */
+
+.header {
+    width: 70%;
+    max-width: 1050px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.welcome-message {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.logout-link {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ===== MAIN CARD ===== */
+
+.container {
+    width: 70%;
+    max-width: 1050px;
+    background-color: #fff;
+    padding: 28px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--soft-accent);
+}
+
+
+/* ===== ADD BUTTON ===== */
+
+.add {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    width: auto;
+}
+
+
+/* ===== TABLE ===== */
+
+.achievement-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.achievement-table th {
+    background-color: var(--soft-accent);
+    color: var(--heading-color);
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid var(--line-color);
+}
+
+.achievement-table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--soft-accent);
+}
+
+/* zebra striping */
+.achievement-table tr:nth-child(even) {
+    background-color: #faf8f4;
+}
+
+/* empty message row */
+.achievement-table td[colspan] {
+    text-align: center;
+    padding: 18px;
+    color: var(--line-color);
+}
+
+
+/* ===== ACTION LINKS ===== */
+
+.achievement-table a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.achievement-table a:hover {
+    text-decoration: underline;
+}
