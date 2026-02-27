@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signUp'])) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // check if email already exists
-        $stmt = $conn->prepare("SELECT student_id FROM student WHERE email = ?");
+        $stmt = $conn->prepare("SELECT student_id FROM students WHERE email = ?");
         if (!$stmt) {
             die("Prepare failed: " . $conn->error);
         }
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signUp'])) {
         } else {
             // create student
             $stmt = $conn->prepare(
-                "INSERT INTO student (first_name, last_name, email, password_hash)
+                "INSERT INTO students (first_name, last_name, email, password_hash)
                  VALUES (?, ?, ?, ?)"
             );
             if (!$stmt) {
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signIn'])) {
     if (!$email || !$password) {
         $error = "Email and password are required.";
     } else {
-        $stmt = $conn->prepare("SELECT student_id, password_hash FROM student WHERE email = ?");
+        $stmt = $conn->prepare("SELECT student_id, password_hash FROM students WHERE email = ?");
         if (!$stmt) {
             die("Prepare failed: " . $conn->error);
         }

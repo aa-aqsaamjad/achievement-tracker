@@ -3,7 +3,9 @@ session_start();
 
 require __DIR__ . '/../config/database.php';
 
-// block unauthenticated users
+/* ===========================
+   BLOCK UNAUTHORIZED ACCESS
+=========================== */
 if (!isset($_SESSION['student_id'])) {
     header("Location: /achievement-tracker/public/auth.php");
     exit;
@@ -11,10 +13,11 @@ if (!isset($_SESSION['student_id'])) {
 
 $student_id = $_SESSION['student_id'];
 
-/* =========================
+
+/* ===========================
    GET FIRST NAME (for greeting)
-========================= */
-$stmt = $conn->prepare("SELECT first_name FROM student WHERE student_id = ?");
+=========================== */
+$stmt = $conn->prepare("SELECT first_name FROM students WHERE student_id = ?");
 $stmt->bind_param("i", $student_id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -27,17 +30,17 @@ if ($row = $result->fetch_assoc()) {
 
 $stmt->close();
 
-/* =========================
+/* ===========================
    GET ACHIEVEMENTS (for display)
-========================= */
+=========================== */
 $stmt = $conn->prepare("SELECT 
                             a.achievement_id,
                             a.title,
                             a.description,
                             a.date_received,
                             c.name AS category_name
-                        FROM achievement a
-                        LEFT JOIN achievement_category c
+                        FROM achievements a
+                        LEFT JOIN achievement_categories c
                             ON a.category_id = c.category_id
                         WHERE a.student_id = ?
                         ORDER BY a.date_received DESC

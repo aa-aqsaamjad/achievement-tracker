@@ -1,4 +1,4 @@
-CREATE TABLE Student (
+CREATE TABLE students (
     student_id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
@@ -8,13 +8,13 @@ CREATE TABLE Student (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Achievement_Category (
+CREATE TABLE achievement_categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description TEXT
 );
 
-CREATE TABLE Achievement (
+CREATE TABLE achievements (
     achievement_id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT NOT NULL,
     category_id INT NOT NULL,
@@ -23,15 +23,6 @@ CREATE TABLE Achievement (
     date_received DATE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (student_id) REFERENCES Student(student_id) ON DELETE CASCADE,
-    FOREIGN KEY (category_id) REFERENCES Achievement_Category(category_id)
-);
-
-CREATE TABLE Achievement_Evidence (
-    evidence_id INT AUTO_INCREMENT PRIMARY KEY,
-    achievement_id INT NOT NULL,
-    file_path VARCHAR(255) NOT NULL,
-    file_type VARCHAR(50),
-    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (achievement_id) REFERENCES Achievement(achievement_id) ON DELETE CASCADE
+    FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES achievement_categories(category_id)
 );
