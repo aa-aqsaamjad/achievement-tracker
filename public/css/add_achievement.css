@@ -9,6 +9,9 @@
     text-align: left;
 }
 
+
+/* ===== INPUTS ===== */
+
 label {
     display: block;
     margin-bottom: 6px;
@@ -37,6 +40,9 @@ textarea:focus {
     border-color: var(--accent-color);
     background: white;
 }
+
+
+/* ===== BUTTONS ===== */
 
 .btn {
     width: 100%;

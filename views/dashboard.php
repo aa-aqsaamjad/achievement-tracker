@@ -52,7 +52,6 @@
         </table>
     </div>
 
-    <!-- Delete Confirmation Modal -->
     <div id="deleteModal" class="modal">
         <div class="modal-content">
             <h3>Delete Achievement</h3>

@@ -4,7 +4,7 @@ session_start();
 require __DIR__ . '/../config/database.php';
 
 /* ===========================
-   BLOCK UNAUTHORIZED ACCESS
+    BLOCK UNAUTHORISED ACCESS
 =========================== */
 if (!isset($_SESSION['student_id'])) {
     header("Location: /achievement-tracker/public/auth.php");
@@ -15,7 +15,7 @@ $student_id = $_SESSION['student_id'];
 
 
 /* ===========================
-   GET FIRST NAME (for greeting)
+    GET FIRST NAME FOR GREETING
 =========================== */
 $stmt = $conn->prepare("SELECT first_name FROM students WHERE student_id = ?");
 $stmt->bind_param("i", $student_id);
@@ -31,7 +31,7 @@ if ($row = $result->fetch_assoc()) {
 $stmt->close();
 
 /* ===========================
-   GET ACHIEVEMENTS (for display)
+    GET ACHIEVEMENTS FOR DISPLAY
 =========================== */
 $stmt = $conn->prepare("SELECT 
                             a.achievement_id,
@@ -59,4 +59,5 @@ while ($row = $result->fetch_assoc()) {
 $stmt->close();
 
 require __DIR__ . '/../views/dashboard.php';
+
 ?>

@@ -1,4 +1,4 @@
-/* ===== HEADER (top welcome + logout) ===== */
+/* ===== HEADER ===== */
 
 .header {
     width: 70%;
@@ -96,6 +96,8 @@
 }
 
 
+/* ===== MODAL ===== */
+
 .modal {
     display: none; /* hidden by default */
     position: fixed;
@@ -139,7 +141,8 @@
 }
 
 .modal-content .btn.danger {
-    background-color: #c0392b; /* soft red */
+    background-color: var(--accent-color);
+    color: white;
 }
 
 .modal-content .btn.danger:hover {

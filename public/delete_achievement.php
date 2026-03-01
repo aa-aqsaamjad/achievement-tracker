@@ -1,9 +1,10 @@
 <?php
+
 session_start();
 require __DIR__ . '/../config/database.php';
 
 /* ===========================
-   BLOCK UNAUTHORIZED ACCESS
+    BLOCK UNAUTHORISED ACCESS
 =========================== */
 if (!isset($_SESSION['student_id'])) {
     header("Location: /achievement-tracker/public/auth.php");
@@ -39,3 +40,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 header("Location: /achievement-tracker/public/dashboard.php");
 exit;
+
+?>

@@ -17,9 +17,15 @@
     display: block;
 }
 
+
+/* ===== FORM TITLE ===== */
+
 .form-title {
     margin-bottom: 10px;
 }
+
+
+/* ===== INPUT GROUP ===== */
 
 .input-group {
     display: flex;
@@ -54,6 +60,9 @@
     color: var(--text-color);
 }
 
+
+/* ===== BUTTONS ===== */
+
 .btn {
     width: 100%;
     padding: 10px;
@@ -76,6 +85,9 @@
     transform: translateY(-1px);
     box-shadow: var(--shadow);
 }
+
+
+/* ===== SWITCH BUTTONS ===== */
 
 button#signInButton,
 button#signUpButton {
