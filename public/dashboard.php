@@ -3,6 +3,7 @@ session_start();
 
 require __DIR__ . '/../config/database.php';
 
+
 /* ===========================
     BLOCK UNAUTHORISED ACCESS
 =========================== */
@@ -29,6 +30,7 @@ if ($row = $result->fetch_assoc()) {
 }
 
 $stmt->close();
+
 
 /* ===========================
     GET ACHIEVEMENTS FOR DISPLAY

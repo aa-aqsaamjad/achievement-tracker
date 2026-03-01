@@ -5,9 +5,11 @@ require __DIR__ . '/../config/database.php';
 
 $error = null;
 
+
 /* ===========================
     HANDLE SIGN IN FORM SUBMISSION
 =========================== */
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signUp'])) {
 
     $first_name = trim($_POST['first_name']);
@@ -56,9 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signUp'])) {
     }
 }
 
+
 /* ===========================
     HANDLE SIGN UP FORM SUBMISSION
 =========================== */
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signIn'])) {
 
     $email    = trim($_POST['email']);

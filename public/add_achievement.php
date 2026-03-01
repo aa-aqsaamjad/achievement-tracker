@@ -3,9 +3,11 @@ session_start();
 
 require __DIR__ . '/../config/database.php';
 
+
 /* ===========================
     BLOCK UNAUTHORISED ACCESS
 =========================== */
+
 if (!isset($_SESSION['student_id'])) {
     header("Location: /achievement-tracker/public/auth.php");
     exit;
@@ -15,6 +17,7 @@ if (!isset($_SESSION['student_id'])) {
 /* ===========================
     GET CATEGORIES FOR DROPDOWN
 =========================== */
+
 $stmt = $conn->prepare("SELECT category_id, name FROM achievement_categories ORDER BY name ASC");
 $stmt->execute();
 $result = $stmt->get_result();
