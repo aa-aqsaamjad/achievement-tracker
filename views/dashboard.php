@@ -44,7 +44,7 @@
                         <td><?php echo htmlspecialchars($achievement['date_received']); ?></td>
                         <td>
                             <a href="/achievement-tracker/public/edit_achievement.php?id=<?php echo $achievement['achievement_id']; ?>">Edit</a> | 
-                            <a href="/achievement-tracker/public/delete_achievement.php?id=<?php echo $achievement['achievement_id']; ?>">Delete</a>
+                            <a href="#" onclick="openDeleteModal(<?php echo $achievement['achievement_id']; ?>, '<?php echo htmlspecialchars($achievement['title'], ENT_QUOTES); ?>')">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -52,5 +52,21 @@
         </table>
     </div>
 
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3>Delete Achievement</h3>
+            <p id="deleteText"></p>
+
+            <form id="deleteForm" method="POST" action="/achievement-tracker/public/delete_achievement.php">
+                <input type="hidden" name="achievement_id" id="deleteId">
+
+                <button type="submit" class="btn danger">Delete</button>
+                <button type="button" class="btn" onclick="closeModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="/achievement-tracker/public/js/dashboard.js"></script>
 </body>
 </html>

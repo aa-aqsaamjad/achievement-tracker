@@ -59,3 +59,4 @@ while ($row = $result->fetch_assoc()) {
 $stmt->close();
 
 require __DIR__ . '/../views/dashboard.php';
+?>
