@@ -12,7 +12,7 @@
 <body>
     <h1> Add New Achievement</h1>
     <div class="container">
-        <form method="POST" action="/achievement-tracker/public/add_achievement.php">
+        <form method="POST" action="/achievement-tracker/public/add_achievement.php" enctype="multipart/form-data">
             <label for="category">Category:</label>
             <select id="category" name="category_id" required>
                 <option value="">Select a category</option>
@@ -31,6 +31,9 @@
 
             <label for="date_received">Date Earned:</label>
             <input type="date" id="date_received" name="date_received" required><br><br>
+
+            <label for="evidence">Upload Evidence (optional):</label>
+            <input type="file" id="evidence" name="evidence"><br><br>   
 
             <button type="submit" class="btn">Add Achievement</button>
         </form>

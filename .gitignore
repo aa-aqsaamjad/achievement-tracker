@@ -4,6 +4,10 @@
 # Dependencies
 /vendor/
 
+# Uploads
+/public/uploads/*
+!.gitkeep
+
 # Logs
 *.log
 /tmp

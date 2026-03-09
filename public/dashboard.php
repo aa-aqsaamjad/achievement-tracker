@@ -40,6 +40,7 @@ $stmt = $conn->prepare("SELECT
                             a.title,
                             a.description,
                             a.date_received,
+                            a.evidence_file,
                             c.name AS category_name
                         FROM achievements a
                         LEFT JOIN achievement_categories c

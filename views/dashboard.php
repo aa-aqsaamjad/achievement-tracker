@@ -28,6 +28,7 @@
                 <th>Achievement Name</th>
                 <th>Description</th>
                 <th>Date Earned</th>
+                <th>Evidence</th>
                 <th>Actions</th>
             </tr>
 
@@ -42,6 +43,13 @@
                         <td><?php echo htmlspecialchars($achievement['title']); ?></td>
                         <td><?php echo htmlspecialchars($achievement['description']); ?></td>
                         <td><?php echo htmlspecialchars($achievement['date_received']); ?></td>
+                        <td>
+                            <?php if (!empty($achievement['evidence_file'])): ?>
+                                <a href="<?php echo $achievement['evidence_file']; ?>" target="_blank">View File</a>
+                            <?php else: ?>
+                                —
+                            <?php endif; ?>
+                        </td>
                         <td>
                             <a href="/achievement-tracker/public/edit_achievement.php?id=<?php echo $achievement['achievement_id']; ?>">Edit</a> | 
                             <a href="#" onclick="openDeleteModal(<?php echo $achievement['achievement_id']; ?>, '<?php echo htmlspecialchars($achievement['title'], ENT_QUOTES); ?>')">Delete</a>

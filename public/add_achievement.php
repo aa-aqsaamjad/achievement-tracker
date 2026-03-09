@@ -36,20 +36,69 @@ $stmt->close();
 =========================== */
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $category_id = $_POST['category_id'] ?? null;
     $title = $_POST['title'] ?? null;
     $description = $_POST['description'] ?? null;
     $date_received = $_POST['date_received'] ?? null;
 
-    // basic validation
+    $evidence_path = null;
+
+
+    /* ===========================
+        HANDLE FILE UPLOAD
+    =========================== */
+
+    if (!empty($_FILES['evidence']['name'])) {
+
+        $allowed_types = ['image/jpeg', 'image/png', 'application/pdf'];
+
+        if (in_array($_FILES['evidence']['type'], $allowed_types)) {
+
+            $upload_dir = __DIR__ . '/../public/uploads/';
+
+            // create unique filename
+            $filename = time() . "_" . basename($_FILES['evidence']['name']);
+            $target_path = $upload_dir . $filename;
+
+            if (move_uploaded_file($_FILES['evidence']['tmp_name'], $target_path)) {
+                $evidence_path = "uploads/" . $filename;
+            }
+
+        } else {
+            $error = "Invalid file type. Only JPG, PNG, and PDF allowed.";
+        }
+    }
+
+
+    /* ===========================
+        INSERT ACHIEVEMENT
+    =========================== */
+
     if ($category_id && $title && $date_received) {
-        $stmt = $conn->prepare("INSERT INTO achievements (student_id, category_id, title, description, date_received)
-                                VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("iisss", $_SESSION['student_id'], $category_id, $title, $description, $date_received);
+
+        $stmt = $conn->prepare("
+            INSERT INTO achievements 
+            (student_id, category_id, title, description, date_received, evidence_file)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ");
+
+        $stmt->bind_param(
+            "iissss",
+            $_SESSION['student_id'],
+            $category_id,
+            $title,
+            $description,
+            $date_received,
+            $evidence_path
+        );
+
         $stmt->execute();
         $stmt->close();
+
         header("Location: /achievement-tracker/public/dashboard.php");
         exit;
+
     } else {
         $error = "Please fill in all required fields.";
     }
